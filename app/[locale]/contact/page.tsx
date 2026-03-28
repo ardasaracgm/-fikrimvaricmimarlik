@@ -11,8 +11,21 @@ export default async function ContactPage({
   const dict = getDictionary(locale);
 
   const phone = "905555555555";
+  const email = "info@fikrimvaricmimarlik.com";
+  const instagram = "https://www.instagram.com/hauzart";
+
   const message = encodeURIComponent(dict.whatsappMessage);
   const whatsappHref = `https://wa.me/${phone}?text=${message}`;
+
+  const mailSubject =
+    locale === "tr" ? "Hauzart Proje Talebi" : "Hauzart Project Inquiry";
+
+  const mailBody =
+    locale === "tr"
+      ? "Merhaba, proje detaylarını paylaşmak istiyorum."
+      : "Hello, I would like to share project details.";
+
+  const mailtoHref = `mailto:${email}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
 
   return (
     <section className="section page-section">
@@ -21,7 +34,12 @@ export default async function ContactPage({
           <h1>{dict.contact.title}</h1>
           <p>{dict.contact.text}</p>
 
-          <form className="contact-form">
+          <form
+            className="contact-form"
+            action={mailtoHref}
+            method="post"
+            encType="text/plain"
+          >
             <input type="text" placeholder={dict.contact.form.name} />
             <input type="text" placeholder={dict.contact.form.phone} />
             <input type="email" placeholder={dict.contact.form.email} />
@@ -35,15 +53,16 @@ export default async function ContactPage({
         <div className="contact-info">
           <p>{dict.contact.info}</p>
 
+          <div className="contact-meta">
+            <p><strong>Email:</strong> {email}</p>
+            <p><strong>Instagram:</strong> @hauzart</p>
+          </div>
+
           <a href={whatsappHref} target="_blank" rel="noreferrer" className="btn btn-primary full">
             {dict.contact.whatsapp}
           </a>
 
-          <Link
-            href="https://www.instagram.com/hauzart"
-            target="_blank"
-            className="btn btn-secondary full"
-          >
+          <Link href={instagram} target="_blank" className="btn btn-secondary full">
             {dict.contact.instagram}
           </Link>
         </div>
