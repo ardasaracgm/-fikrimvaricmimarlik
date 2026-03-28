@@ -16,7 +16,7 @@ export default async function HomePage({
     <>
       <section className="hero">
         <Image
-          src="/hero.jpg"
+          src="/hero.webp"
           alt="Hauzart interior design"
           fill
           priority
