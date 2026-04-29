@@ -188,6 +188,22 @@ img {
   font-size: 17px;
 }
 
+.intro-logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.intro-logo img {
+  height: auto;
+  filter: brightness(0) opacity(0.15);
+  transition: opacity 0.3s ease;
+}
+
+.intro-logo img:hover {
+  opacity: 0.25;
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
