@@ -78,7 +78,7 @@ export const dictionary: Record<Locale, Dictionary> = {
       primary: "Projeleri İncele",
       secondary: "İletişime Geç",
       introTitle: "Tasarımın ötesinde, bütüncül bir proje yaklaşımı",
-      introText: "Her mekânın kendi kimliği olduğuna inanıyoruz. Bu anlayışla, estetik kararları işlevsellik ve uygulama disipliniyle birleştirerek her projeyi özgün bir bakış açısıyla ele alıyoruz.",
+      introText: "Her mekânın kendi kimliği olduğuna inanıyoruz. Bu anlayışla, estetik kararları işlevsellik ve uygulama disipliniyle birleştirerek her projeyi özgün bir bakış açısıyla ele alıyoruz.Malzeme seçiminden renk paletine, aydınlatma kurgusundan detay çözümlerine kadar tüm süreçleri bir bütün olarak değerlendiriyor; tasarımın yalnızca görsel değil, aynı zamanda deneyimsel bir değer taşımasını hedefliyoruz. Proje sürecinde şeffaf iletişim ve titiz planlama ile ilerleyerek, her aşamada sürdürülebilir, uygulanabilir ve uzun ömürlü çözümler sunuyoruz. Böylece ortaya çıkan her iş, yalnızca bir mekân değil; kullanıcıyla bağ kuran, yaşayan ve zamana uyum sağlayan bir tasarım haline geliyor.",
       servicesTitle: "Hizmetler",
       services: [
         {
