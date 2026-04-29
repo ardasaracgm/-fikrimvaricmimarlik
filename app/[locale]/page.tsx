@@ -43,10 +43,10 @@ export default async function HomePage({
           <p>{dict.home.introText}</p>
           <div className="intro-logo">
             <Image
-              src="/logo.png"
+              src="/logo-mark.png"
               alt="Hauzart"
-              width={240}
-              height={120}
+              width={420}
+              height={174}
             />
           </div>
         </div>
