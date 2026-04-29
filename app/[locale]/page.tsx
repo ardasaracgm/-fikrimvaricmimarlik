@@ -41,6 +41,14 @@ export default async function HomePage({
         <div className="container narrow">
           <h2>{dict.home.introTitle}</h2>
           <p>{dict.home.introText}</p>
+          <div className="intro-logo">
+            <Image
+              src="/logo.png"
+              alt="Hauzart"
+              width={240}
+              height={120}
+            />
+          </div>
         </div>
       </section>
 
