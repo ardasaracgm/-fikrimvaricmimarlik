@@ -56,10 +56,6 @@ export default async function ContactPage({
             <p><strong>Instagram:</strong> @hauzart</p>
           </div>
 
-          <a href={whatsappHref} target="_blank" rel="noreferrer" className="btn btn-primary full">
-            {dict.contact.whatsapp}
-          </a>
-
           <Link href={instagram} target="_blank" className="btn btn-secondary full">
             {dict.contact.instagram}
           </Link>
