@@ -72,7 +72,7 @@ export const dictionary: Record<Locale, Dictionary> = {
     ],
     home: {
       title: "Mekânlara estetik, işlev ve karakter kazandırıyoruz.",
-      text: "Hauzart olarak konut, ofis ve ticari alanlar için iç mimari tasarım, uygulama ve fitout management hizmetleri sunuyoruz. Her projede ihtiyaçları doğru analiz ederek zamansız ve işlevsel yaşam alanları kurguluyoruz.",
+      text: "Hauzart olarak seçilmiş alanlar için iç mimari tasarım, uygulama ve fitout management hizmetleri sunuyoruz. Her projede ihtiyaçları doğru analiz ederek zamansız ve işlevsel yaşam alanları kurguluyoruz.",
       primary: "Projeleri İncele",
       secondary: "İletişime Geç",
       introTitle: "Tasarımın ötesinde, bütüncül bir proje yaklaşımı",
@@ -108,7 +108,7 @@ export const dictionary: Record<Locale, Dictionary> = {
     projects: {
       title: "Projeler",
       text: "Farklı ölçek ve ihtiyaçlara göre geliştirdiğimiz iç mimari projelerden seçilmiş örnekler.",
-      categories: "Konut · Ofis · Ticari Alan"
+      categories: "Tasarım · Özel · Zamanın Ötesinde"
     },
     fitout: {
       title: "Fitout Management",
