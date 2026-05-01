@@ -188,20 +188,31 @@ img {
   font-size: 17px;
 }
 
-.intro-logo {
-  display: flex;
-  justify-content: center;
-  margin-top: 48px;
+.intro {
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
 }
 
-.intro-logo img {
+.intro-logo-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  width: min(600px, 90%);
+}
+
+.intro-logo-bg img {
+  width: 100%;
   height: auto;
-  filter: brightness(0) opacity(0.15);
-  transition: opacity 0.3s ease;
+  filter: brightness(0) opacity(0.08);
 }
 
-.intro-logo img:hover {
-  opacity: 0.25;
+.intro-content {
+  position: relative;
+  z-index: 1;
 }
 
 .services-grid {
