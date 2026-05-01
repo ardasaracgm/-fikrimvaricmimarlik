@@ -10,12 +10,10 @@ export default async function ContactPage({
   const { locale } = await params;
   const dict = getDictionary(locale);
 
-  const phone = "905555555555";
+  const phone = "+9 0538 378 06 03";
   const email = "info@fikrimvaricmimarlik.com";
   const instagram = "https://www.instagram.com/hauzart";
 
-  const message = encodeURIComponent(dict.whatsappMessage);
-  const whatsappHref = `https://wa.me/${phone}?text=${message}`;
 
   const mailSubject =
     locale === "tr" ? "Hauzart Proje Talebi" : "Hauzart Project Inquiry";
