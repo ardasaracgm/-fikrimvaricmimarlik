@@ -202,8 +202,7 @@ export const dictionary: Record<Locale, Dictionary> = {
         message: "Message",
         submit: "Send"
       },
-      info: "You can view our work on Instagram and contact us directly via WhatsApp.",
-      whatsapp: "Contact on WhatsApp",
+      info: "You can view our work on Instagram and contact us directly via Mail.",
       instagram: "Visit Instagram"
     },
     footer: {
