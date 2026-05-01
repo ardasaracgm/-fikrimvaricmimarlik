@@ -21,7 +21,6 @@ export default async function LocaleLayout({
       <Header locale={locale as Locale} />
       <main>{children}</main>
       <Footer locale={locale as Locale} />
-      <WhatsAppButton locale={locale as Locale} />
     </>
   );
 }
