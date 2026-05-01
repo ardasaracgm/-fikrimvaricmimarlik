@@ -52,13 +52,11 @@ type Dictionary = {
       submit: string;
     };
     info: string;
-    whatsapp: string;
     instagram: string;
   };
   footer: {
     text: string;
   };
-  whatsappMessage: string;
 };
 
 export const dictionary: Record<Locale, Dictionary> = {
