@@ -128,8 +128,7 @@ export const dictionary: Record<Locale, Dictionary> = {
         message: "Mesaj",
         submit: "Gönder"
       },
-      info: "Instagram üzerinden çalışmalarımızı inceleyebilir, WhatsApp üzerinden doğrudan bizimle iletişime geçebilirsiniz.",
-      whatsapp: "WhatsApp ile İletişim",
+      info: "ADRES: Beştepe mahallesi mertebe sokak 4/1 yenimahalle ankara. Instagram üzerinden çalışmalarımızı inceleyebilir,İletişim formu yada telefon üzerinden doğrudan bizimle iletişime geçebilirsiniz.",
       instagram: "Instagram’a Git"
     },
     footer: {
