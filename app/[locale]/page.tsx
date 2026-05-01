@@ -38,17 +38,18 @@ export default async function HomePage({
       </section>
 
       <section className="section intro">
-        <div className="container narrow">
+        <div className="intro-logo-bg">
+          <Image
+            src="/logo-mark.png"
+            alt=""
+            width={600}
+            height={248}
+            aria-hidden="true"
+          />
+        </div>
+        <div className="container narrow intro-content">
           <h2>{dict.home.introTitle}</h2>
           <p>{dict.home.introText}</p>
-          <div className="intro-logo">
-            <Image
-              src="/logo-mark.png"
-              alt="Hauzart"
-              width={420}
-              height={174}
-            />
-          </div>
         </div>
       </section>
 
