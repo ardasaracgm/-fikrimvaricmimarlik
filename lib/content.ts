@@ -134,7 +134,6 @@ export const dictionary: Record<Locale, Dictionary> = {
     footer: {
       text: "İç mimari tasarım, uygulama ve fitout management."
     },
-    whatsappMessage: "Merhaba, Hauzart ile bir proje hakkında görüşmek istiyorum."
   },
   en: {
     brand: "Hauzart",
@@ -208,7 +207,6 @@ export const dictionary: Record<Locale, Dictionary> = {
     footer: {
       text: "Interior design, implementation and fitout management."
     },
-    whatsappMessage: "Hello, I would like to discuss a project with Hauzart."
   }
 };
 
