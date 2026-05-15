@@ -71,7 +71,7 @@ export default async function HomePage({
         <div className="container">
           <h2 className="section-title">{dict.home.featuredTitle}</h2>
           <p className="section-text">{dict.home.featuredText}</p>
-          <ProjectGrid />
+          <ProjectGrid locale={locale} limit={3} />
           <div className="center mt-40">
             <Link href={`/${locale}/projects`} className="btn btn-primary">
               {dict.home.primary}

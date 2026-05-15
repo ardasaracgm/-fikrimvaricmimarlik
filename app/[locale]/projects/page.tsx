@@ -19,7 +19,7 @@ export default async function ProjectsPage({
           <span className="category-line">{dict.projects.categories}</span>
         </div>
         <div className="mt-40">
-          <ProjectGrid />
+          <ProjectGrid locale={locale} />
         </div>
       </div>
     </section>
