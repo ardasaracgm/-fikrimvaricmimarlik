@@ -185,8 +185,8 @@ export const dictionary: Record<Locale, Dictionary> = {
     },
     fitout: {
       title: "Fitout Management",
-      text1: "Fitout management is the process of ensuring that design is transferred into execution completely and in a controlled way.",
-      text2: "This approach protects timing, quality and execution discipline throughout the project while ensuring that design decisions are accurately reflected on site.",
+      text1: "Fit-out management is a strategic management process that ensures architectural designs are implemented on-site in a comprehensive, controlled and disciplined manner. This holistic approach ensures that design decisions are faithfully executed on-site without compromising on quality standards, whilst maintaining optimal time management across your projects.",
+      text2: "Our department, which ensures technical integration between your investors, tenants, consultants and subcontractors in all processes requiring a high level of coordination—particularly shopping centres, hotels, mixed-use and residential projects—takes full operational responsibility for your project. You can view the shopping centre projects for which we have undertaken technical coordination.",
       subheading: "Planning, coordination and execution control"
     },
     contact: {
