@@ -12,7 +12,6 @@ export default async function ContactPage({
 
   const phone = "+9 0538 378 06 03";
   const email = "info@fikrimvaricmimarlik.com";
-  const email = "info@hauzart.com";
   const instagram = "https://www.instagram.com/hauzart";
 
 
