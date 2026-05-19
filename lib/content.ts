@@ -112,10 +112,8 @@ export const dictionary: Record<Locale, Dictionary> = {
     },
     fitout: {
       title: "Fitout Management",
-      text1: "Fitout management, mimari tasarımın sahaya eksiksiz, kontrollü ve disiplinli bir şekilde aktarılmasını güvence altına alan stratejik bir yönetim sürecidir. Bu bütünsel yaklaşım; 
-        projelerinizde zaman yönetimini optimum düzeyde tutarken, kalite standartlarından ödün vermeden tasarım kararlarının sahada birebir karşılık bulmasını sağlar.",
-      text2: "Alışveriş merkezleri, oteller, karma kullanım (mixed-use) ve rezidans projeleri başta olmak üzere, yüksek koordinasyon gerektiren tüm süreçlerde; yatırımcılarınız, kiracılarınız, danışmanlarınız ve alt yüklenicileriniz arasındaki teknik entegrasyonu sağlayan departmanımız, projenizin tüm operasyonel sorumluluğunu üstlenmektedir.
-        Bu kapsamda teknik koordinasyonunu üstlendiğimiz alışveriş merkezi projelerimizi inceleyebilirsiniz.",
+      text1: "Fitout management, mimari tasarımın sahaya eksiksiz, kontrollü ve disiplinli bir şekilde aktarılmasını güvence altına alan stratejik bir yönetim sürecidir. Bu bütünsel yaklaşım; projelerinizde zaman yönetimini optimum düzeyde tutarken, kalite standartlarından ödün vermeden tasarım kararlarının sahada birebir karşılık bulmasını sağlar.",
+      text2: "Alışveriş merkezleri, oteller, karma kullanım (mixed-use) ve rezidans projeleri başta olmak üzere, yüksek koordinasyon gerektiren tüm süreçlerde; yatırımcılarınız, kiracılarınız, danışmanlarınız ve alt yüklenicileriniz arasındaki teknik entegrasyonu sağlayan departmanımız, projenizin tüm operasyonel sorumluluğunu üstlenmektedir.Bu kapsamda teknik koordinasyonunu üstlendiğimiz alışveriş merkezi projelerimizi inceleyebilirsiniz.",
       subheading: "Planlama, koordinasyon ve uygulama kontrolü"
     },
     contact: {
