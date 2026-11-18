@@ -14,6 +14,13 @@ export function AdminShell({children}: {children: React.ReactNode}) {
   const pathname = usePathname()
   const router = useRouter()
   const [collapsed, setCollapsed] = useState(false)
+  // AdminLTE mobilde (<992px) menüyü sidebar-collapse ile değil sidebar-open ile açar
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  const toggleMenu = () => {
+    if (window.matchMedia('(max-width: 991.98px)').matches) setMobileOpen((o) => !o)
+    else setCollapsed((c) => !c)
+  }
 
   // AdminLTE'nin CSS'i body.sidebar-mini.layout-fixed seçicilerine dayanıyor —
   // ana sitenin body'sini etkilememek için bu class'lar sadece admin
@@ -21,13 +28,22 @@ export function AdminShell({children}: {children: React.ReactNode}) {
   useEffect(() => {
     document.body.classList.add('hold-transition', 'sidebar-mini', 'layout-fixed')
     return () => {
-      document.body.classList.remove('hold-transition', 'sidebar-mini', 'layout-fixed', 'sidebar-collapse')
+      document.body.classList.remove('hold-transition', 'sidebar-mini', 'layout-fixed', 'sidebar-collapse', 'sidebar-open')
     }
   }, [])
 
   useEffect(() => {
     document.body.classList.toggle('sidebar-collapse', collapsed)
   }, [collapsed])
+
+  useEffect(() => {
+    document.body.classList.toggle('sidebar-open', mobileOpen)
+  }, [mobileOpen])
+
+  // Mobilde menüden bir sayfa seçilince menü kapansın
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [pathname])
 
   const handleLogout = async () => {
     await fetch('/api/admin/logout', {method: 'POST'})
@@ -44,7 +60,7 @@ export function AdminShell({children}: {children: React.ReactNode}) {
             <button
               type="button"
               className="nav-link btn btn-link"
-              onClick={() => setCollapsed((c) => !c)}
+              onClick={toggleMenu}
               aria-label="Menüyü aç/kapat"
             >
               <i className="fas fa-bars" />
@@ -95,6 +111,9 @@ export function AdminShell({children}: {children: React.ReactNode}) {
       </div>
 
       <footer className="main-footer text-center text-muted small">Hauzart Admin Paneli</footer>
+
+      {/* Mobilde açık menünün dışına dokununca kapat (AdminLTE stili: .sidebar-open #sidebar-overlay) */}
+      {mobileOpen && <div id="sidebar-overlay" onClick={() => setMobileOpen(false)} />}
     </div>
   )
 }
