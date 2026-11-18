@@ -44,10 +44,6 @@ export default function Header({ locale }: Props) {
 
         <div className="header-right">
           <LocaleSwitcher locale={locale} />
-          {/* Düz <a>: admin başka build'den (proxy) geliyor, tam sayfa yüklensin. */}
-          <a href="/admin/login" title="Admin Paneli" style={{ opacity: 0.5, fontSize: "0.85rem" }}>
-            🔒
-          </a>
           <button
             type="button"
             className={`menu-toggle ${open ? "open" : ""}`}
@@ -73,9 +69,6 @@ export default function Header({ locale }: Props) {
               {item.label}
             </Link>
           ))}
-          <a href="/admin/login" onClick={() => setOpen(false)} style={{ opacity: 0.6 }}>
-            🔒 Admin
-          </a>
         </div>
       </div>
     </header>

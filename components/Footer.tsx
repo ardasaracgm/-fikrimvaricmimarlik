@@ -22,7 +22,6 @@ export default function Footer({ locale }: Props) {
             Instagram
           </Link>
           <Link href={`/${locale}/contact`}>{dict.nav[4].label}</Link>
-          <a href="/admin/login">Admin</a>
         </div>
       </div>
     </footer>
