@@ -5,6 +5,7 @@ import {useRouter} from 'next/navigation'
 
 export default function AdminLoginPage() {
   const router = useRouter()
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -17,11 +18,11 @@ export default function AdminLoginPage() {
     const res = await fetch('/api/admin/login', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({password}),
+      body: JSON.stringify({username, password}),
     })
 
     if (!res.ok) {
-      setError('Parola hatalı')
+      setError('Kullanıcı adı veya parola hatalı')
       setLoading(false)
       return
     }
@@ -45,12 +46,30 @@ export default function AdminLoginPage() {
               <form onSubmit={handleSubmit}>
                 <div className="input-group mb-3">
                   <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Kullanıcı adı"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    autoComplete="username"
+                    autoCapitalize="none"
+                    autoFocus
+                    required
+                  />
+                  <div className="input-group-append">
+                    <div className="input-group-text">
+                      <span className="fas fa-user" />
+                    </div>
+                  </div>
+                </div>
+                <div className="input-group mb-3">
+                  <input
                     type="password"
                     className="form-control"
                     placeholder="Parola"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    autoFocus
+                    autoComplete="current-password"
                     required
                   />
                   <div className="input-group-append">

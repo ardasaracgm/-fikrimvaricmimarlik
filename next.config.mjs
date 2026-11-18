@@ -7,6 +7,14 @@ const nextConfig = {
         destination: '/tr',
         permanent: false,
       },
+      // Gerçek domain'in Vercel projesinde admin env'leri yok (Arda Bey'in hesabı) →
+      // 🔒 ikonu / admin adresleri, admin'in çalıştığı vercel.app'e gider.
+      ...['fikrimvaricmimarlik.com', 'www.fikrimvaricmimarlik.com'].map((host) => ({
+        source: '/admin/:path*',
+        has: [{type: 'host', value: host}],
+        destination: 'https://fikrim-var-mimarlik.vercel.app/admin/:path*',
+        permanent: false,
+      })),
     ]
   },
   images: {
