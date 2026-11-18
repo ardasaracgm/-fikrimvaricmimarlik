@@ -44,8 +44,7 @@ export default function Header({ locale }: Props) {
 
         <div className="header-right">
           <LocaleSwitcher locale={locale} />
-          {/* Düz <a>: gerçek domainde /admin sunucu yönlendirmesiyle vercel.app'e gider,
-              Next <Link> istemci geçişi bu yönlendirmeyi atlayabilir. */}
+          {/* Düz <a>: admin başka build'den (proxy) geliyor, tam sayfa yüklensin. */}
           <a href="/admin/login" title="Admin Paneli" style={{ opacity: 0.5, fontSize: "0.85rem" }}>
             🔒
           </a>
