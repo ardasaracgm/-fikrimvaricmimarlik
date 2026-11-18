@@ -8,71 +8,67 @@ type TranslateRequest = {
   targetLang?: string
 }
 
+// MyMemory (ücretsiz, anahtar/kayıt gerektirmeyen çeviri API'si) tek istekte
+// ~500 karakterle sınırlı — daha uzun metinleri cümle sınırlarından bölüp
+// ayrı ayrı çevirip birleştiriyoruz.
+const MAX_CHUNK_LENGTH = 450
+
+function splitIntoChunks(text: string): string[] {
+  if (text.length <= MAX_CHUNK_LENGTH) return [text]
+
+  const sentences = text.split(/(?<=[.!?])\s+/)
+  const chunks: string[] = []
+  let current = ''
+
+  for (const sentence of sentences) {
+    if ((current + ' ' + sentence).trim().length > MAX_CHUNK_LENGTH && current) {
+      chunks.push(current.trim())
+      current = sentence
+    } else {
+      current = (current + ' ' + sentence).trim()
+    }
+  }
+  if (current) chunks.push(current.trim())
+
+  return chunks
+}
+
+async function translateChunk(chunk: string, langpair: string): Promise<string> {
+  const url = new URL('https://api.mymemory.translated.net/get')
+  url.searchParams.set('q', chunk)
+  url.searchParams.set('langpair', langpair)
+
+  const r = await fetch(url.toString())
+  if (!r.ok) throw new Error(`MyMemory hatası: ${r.status}`)
+
+  const data = await r.json()
+  const translated = data?.responseData?.translatedText
+  if (!translated) throw new Error('Çeviri alınamadı')
+  return translated
+}
+
+async function translateText(text: string, langpair: string): Promise<string> {
+  if (!text.trim()) return ''
+  const chunks = splitIntoChunks(text)
+  const translated = await Promise.all(chunks.map((chunk) => translateChunk(chunk, langpair)))
+  return translated.join(' ')
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const apiKey = process.env.DEEPL_API_KEY
-    console.log('[translate] API key tanımlı mı?', apiKey ? 'EVET' : 'HAYIR')
-    console.log('[translate] Key uzunluğu:', apiKey?.length)
-    console.log('[translate] Key sonu :fx ile mi bitiyor?', apiKey?.endsWith(':fx'))
-
-    if (!apiKey) {
-      return NextResponse.json(
-        {error: 'DEEPL_API_KEY tanımlı değil'},
-        {status: 500}
-      )
-    }
-
     const body: TranslateRequest = await req.json()
     const {texts, sourceLang = 'TR', targetLang = 'EN'} = body
-    console.log('[translate] Gelen metin sayısı:', texts?.length)
 
     if (!Array.isArray(texts) || texts.length === 0) {
       return NextResponse.json({error: 'texts boş olamaz'}, {status: 400})
     }
 
-    const isFree = apiKey.endsWith(':fx')
-    const endpoint = isFree
-      ? 'https://api-free.deepl.com/v2/translate'
-      : 'https://api.deepl.com/v2/translate'
-    console.log('[translate] Endpoint:', endpoint)
+    const langpair = `${sourceLang.toLowerCase()}|${targetLang.toLowerCase()}`
+    const translations = await Promise.all(texts.map((t) => translateText(t, langpair)))
 
-const form = new URLSearchParams()
-    form.append('source_lang', sourceLang)
-    form.append('target_lang', targetLang)
-    form.append('preserve_formatting', '1')
-    texts.forEach((t) => form.append('text', t))
-
-    const r = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': `DeepL-Auth-Key ${apiKey}`,
-      },
-      body: form,
-    })
-
-    console.log('[translate] DeepL status:', r.status)
-
-    if (!r.ok) {
-      const errText = await r.text()
-      console.error('[translate] DeepL hata cevabı:', errText)
-      return NextResponse.json(
-        {error: `DeepL hatası: ${r.status}`, detail: errText},
-        {status: 500}
-      )
-    }
-
-    const data = await r.json()
-    const translations: string[] = (data.translations || []).map(
-      (t: any) => t.text
-    )
-    console.log('[translate] Başarılı, çeviri sayısı:', translations.length)
     return NextResponse.json({translations})
   } catch (err: any) {
     console.error('[translate] HATA:', err)
-    return NextResponse.json(
-      {error: err.message || 'Bilinmeyen hata', stack: err.stack},
-      {status: 500}
-    )
+    return NextResponse.json({error: err.message || 'Bilinmeyen hata'}, {status: 500})
   }
 }

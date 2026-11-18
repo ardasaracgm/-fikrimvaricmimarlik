@@ -38,7 +38,9 @@ export default async function ProjectGrid({
   if (!items.length) {
     return (
       <div className="project-grid-empty">
-        {isEn ? 'No projects yet.' : 'Henüz proje yok.'}
+        {isEn
+          ? 'Our project gallery is being updated — check back soon.'
+          : 'Proje galerimiz güncelleniyor, çok yakında burada olacak.'}
       </div>
     )
   }
@@ -63,15 +65,16 @@ export default async function ProjectGrid({
                 height={1200}
                 className="project-image"
               />
-            </div>
-            <div className="project-card-meta">
-              <h3 className="project-card-title">{title}</h3>
-              <div className="project-card-sub">
-                <span>{location}</span>
-                <span className="project-card-dot">·</span>
-                <span>{p.year}</span>
-                <span className="project-card-dot">·</span>
-                <span>{category}</span>
+              <div className="project-card-overlay" />
+              <div className="project-card-meta">
+                <h3 className="project-card-title">{title}</h3>
+                <div className="project-card-sub">
+                  <span>{location}</span>
+                  <span className="project-card-dot">·</span>
+                  <span>{p.year}</span>
+                  <span className="project-card-dot">·</span>
+                  <span>{category}</span>
+                </div>
               </div>
             </div>
           </Link>

@@ -1,8 +1,26 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { getDictionary } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
 import ProjectGrid from "@/components/ProjectGrid";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { client } from "@/sanity/lib/client";
+import { publishedProjectsCountQuery } from "@/sanity/lib/queries";
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const dict = getDictionary(locale);
+  return {
+    title: dict.home.title,
+    description: dict.home.text,
+    alternates: { canonical: `/${locale}` }
+  };
+}
 
 export default async function HomePage({
   params
@@ -11,6 +29,7 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   const dict = getDictionary(locale);
+  const projectCount = await client.fetch<number>(publishedProjectsCountQuery);
 
   return (
     <>
@@ -47,47 +66,54 @@ export default async function HomePage({
             aria-hidden="true"
           />
         </div>
-        <div className="container narrow intro-content">
+        {/* Metin, altındaki Hizmetler kutularıyla aynı genişlikte (narrow sınırı yok) */}
+        <RevealOnScroll className="container intro-content">
           <h2>{dict.home.introTitle}</h2>
           <p>{dict.home.introText}</p>
-        </div>
+        </RevealOnScroll>
       </section>
 
       <section className="section">
         <div className="container">
-          <h2 className="section-title">{dict.home.servicesTitle}</h2>
+          <RevealOnScroll>
+            <h2 className="section-title">{dict.home.servicesTitle}</h2>
+          </RevealOnScroll>
           <div className="services-grid">
-            {dict.home.services.map((service) => (
-              <div key={service.title} className="service-card">
+            {dict.home.services.map((service, i) => (
+              <RevealOnScroll key={service.title} delay={i * 120} className="service-card">
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
-              </div>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <h2 className="section-title">{dict.home.featuredTitle}</h2>
-          <p className="section-text">{dict.home.featuredText}</p>
-          <ProjectGrid locale={locale} limit={3} />
-          <div className="center mt-40">
-            <Link href={`/${locale}/projects`} className="btn btn-primary">
-              {dict.home.primary}
-            </Link>
+      {projectCount > 0 && (
+        <section className="section">
+          <div className="container">
+            <RevealOnScroll>
+              <h2 className="section-title">{dict.home.featuredTitle}</h2>
+              <p className="section-text">{dict.home.featuredText}</p>
+            </RevealOnScroll>
+            <ProjectGrid locale={locale} limit={3} />
+            <div className="center mt-40">
+              <Link href={`/${locale}/projects`} className="btn btn-primary">
+                {dict.home.primary}
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="section cta-section">
-        <div className="container narrow center">
+        <RevealOnScroll className="container narrow center">
           <h2>{dict.home.ctaTitle}</h2>
           <p>{dict.home.ctaText}</p>
           <Link href={`/${locale}/contact`} className="btn btn-primary">
             {dict.home.secondary}
           </Link>
-        </div>
+        </RevealOnScroll>
       </section>
     </>
   );

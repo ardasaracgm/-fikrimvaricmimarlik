@@ -43,3 +43,7 @@ Thumbs.db
 
 # Sanity
 /dist
+.sanity
+.vercel
+.env*
+scratchpad_check4/

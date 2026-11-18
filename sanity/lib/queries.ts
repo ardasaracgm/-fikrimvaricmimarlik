@@ -15,6 +15,11 @@ export const projectsListQuery = groq`
   }
 `
 
+// Yayınlanmış proje sayısı (boş state kontrolü için)
+export const publishedProjectsCountQuery = groq`
+  count(*[_type == "project" && isPublished == true])
+`
+
 // Tek bir projeyi slug ile çek (detay sayfası için)
 export const projectBySlugQuery = groq`
   *[_type == "project" && slug.current == $slug][0] {
@@ -52,24 +57,13 @@ export const projectBySlugQuery = groq`
 export const allProjectSlugsQuery = groq`
   *[_type == "project" && isPublished == true][].slug.current
 `
-// Mevcut projeden sonraki projeyi getir (order'a göre)
-// Eğer sıradaki yoksa, baştaki ilk projeyi getir (döngü)
-export const nextProjectQuery = groq`
-  *[_type == "project" && isPublished == true && order > $currentOrder]
-    | order(order asc)[0] {
-      title,
-      titleEn,
-      "slug": slug.current,
-      heroImage
-    }
-`
-
-export const firstProjectQuery = groq`
-  *[_type == "project" && isPublished == true && slug.current != $currentSlug]
-    | order(order asc)[0] {
-      title,
-      titleEn,
-      "slug": slug.current,
-      heroImage
-    }
+// "Sonraki proje" için: Projeler sayfasıyla (projectsListQuery) AYNI sırada tüm yayınlanmış projeler.
+// Sıradaki proje bu listeden bulunur; sıra numaraları (order) eşit olsa bile döngü bütün projeleri gezer.
+export const projectSequenceQuery = groq`
+  *[_type == "project" && isPublished == true] | order(order asc, _createdAt desc) {
+    title,
+    titleEn,
+    "slug": slug.current,
+    heroImage
+  }
 `

@@ -76,7 +76,7 @@ export const dictionary: Record<Locale, Dictionary> = {
       primary: "Projeleri İncele",
       secondary: "İletişime Geç",
       introTitle: "Tasarımın ötesinde, bütüncül bir proje yaklaşımı",
-      introText: "Her mekânın kendi kimliği olduğuna inanıyoruz. Bu anlayışla, estetik kararları işlevsellik ve uygulama disipliniyle birleştirerek her projeyi özgün bir bakış açısıyla ele alıyoruz.Malzeme seçiminden renk paletine, aydınlatma kurgusundan detay çözümlerine kadar tüm süreçleri bir bütün olarak değerlendiriyor; tasarımın yalnızca görsel değil, aynı zamanda deneyimsel bir değer taşımasını hedefliyoruz. Proje sürecinde şeffaf iletişim ve titiz planlama ile ilerleyerek, her aşamada sürdürülebilir, uygulanabilir ve uzun ömürlü çözümler sunuyoruz. Böylece ortaya çıkan her iş, yalnızca bir mekân değil; kullanıcıyla bağ kuran, yaşayan ve zamana uyum sağlayan bir tasarım haline geliyor.",
+      introText: "Her mekânın kendi kimliği olduğuna inanıyoruz. Bu anlayışla, estetik kararları işlevsellik ve uygulama disipliniyle birleştirerek her projeyi özgün bir bakış açısıyla ele alıyoruz. Malzeme seçiminden renk paletine, aydınlatma kurgusundan detay çözümlerine kadar tüm süreçleri bir bütün olarak değerlendiriyor; tasarımın yalnızca görsel değil, aynı zamanda deneyimsel bir değer taşımasını hedefliyoruz. Proje sürecinde şeffaf iletişim ve titiz planlama ile ilerleyerek, her aşamada sürdürülebilir, uygulanabilir ve uzun ömürlü çözümler sunuyoruz. Böylece ortaya çıkan her iş, yalnızca bir mekân değil; kullanıcıyla bağ kuran, yaşayan ve zamana uyum sağlayan bir tasarım haline geliyor.",
       servicesTitle: "Hizmetler",
       services: [
         {
@@ -113,7 +113,7 @@ export const dictionary: Record<Locale, Dictionary> = {
     fitout: {
       title: "Fitout Management",
       text1: "Fitout management, mimari tasarımın sahaya eksiksiz, kontrollü ve disiplinli bir şekilde aktarılmasını güvence altına alan stratejik bir yönetim sürecidir. Bu bütünsel yaklaşım; projelerinizde zaman yönetimini optimum düzeyde tutarken, kalite standartlarından ödün vermeden tasarım kararlarının sahada birebir karşılık bulmasını sağlar.",
-      text2: "Alışveriş merkezleri, oteller, karma kullanım (mixed-use) ve rezidans projeleri başta olmak üzere, yüksek koordinasyon gerektiren tüm süreçlerde; yatırımcılarınız, kiracılarınız, danışmanlarınız ve alt yüklenicileriniz arasındaki teknik entegrasyonu sağlayan departmanımız, projenizin tüm operasyonel sorumluluğunu üstlenmektedir.Bu kapsamda teknik koordinasyonunu üstlendiğimiz alışveriş merkezi projelerimizi inceleyebilirsiniz.",
+      text2: "Alışveriş merkezleri, oteller, karma kullanım (mixed-use) ve rezidans projeleri başta olmak üzere, yüksek koordinasyon gerektiren tüm süreçlerde; yatırımcılarınız, kiracılarınız, danışmanlarınız ve alt yüklenicileriniz arasındaki teknik entegrasyonu sağlayan departmanımız, projenizin tüm operasyonel sorumluluğunu üstlenmektedir. Bu kapsamda teknik koordinasyonunu üstlendiğimiz alışveriş merkezi projelerimizi inceleyebilirsiniz.",
       subheading: "Planlama, koordinasyon ve uygulama kontrolü"
     },
     contact: {
@@ -126,7 +126,7 @@ export const dictionary: Record<Locale, Dictionary> = {
         message: "Mesaj",
         submit: "Gönder"
       },
-      info: "ADRES: Beştepe Mahallesi Mertebe Sokak 4/1 Yenimahalle/Ankara.İletişim formu yada telefon üzerinden doğrudan bizimle iletişime geçebilirsiniz.",
+      info: "ADRES: Beştepe Mahallesi Mertebe Sokak 4/1 Yenimahalle/Ankara",
       instagram: "Instagram’a Git"
     },
     footer: {
@@ -199,7 +199,7 @@ export const dictionary: Record<Locale, Dictionary> = {
         message: "Message",
         submit: "Send"
       },
-      info: "Contact us directly via Mail.",
+      info: "ADDRESS: Beştepe Mahallesi Mertebe Sokak 4/1 Yenimahalle/Ankara, Türkiye",
       instagram: "Visit Instagram"
     },
     footer: {

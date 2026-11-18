@@ -219,9 +219,9 @@ export const projectType = defineType({
     }),
     defineField({
       name: 'order',
-      title: 'Sıralama',
+      title: 'Sıra No',
       type: 'number',
-      description: 'Küçük sayı önce gösterilir',
+      description: 'Küçük numara önce gösterilir. Numara sitede görünmez.',
       initialValue: 100,
       group: 'meta',
     }),

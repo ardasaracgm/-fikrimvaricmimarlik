@@ -44,6 +44,9 @@ export default function Header({ locale }: Props) {
 
         <div className="header-right">
           <LocaleSwitcher locale={locale} />
+          <Link href="/admin/login" title="Admin Paneli" style={{ opacity: 0.5, fontSize: "0.85rem" }}>
+            🔒
+          </Link>
           <button
             type="button"
             className={`menu-toggle ${open ? "open" : ""}`}
@@ -69,6 +72,9 @@ export default function Header({ locale }: Props) {
               {item.label}
             </Link>
           ))}
+          <Link href="/admin/login" onClick={() => setOpen(false)} style={{ opacity: 0.6 }}>
+            🔒 Admin
+          </Link>
         </div>
       </div>
     </header>
