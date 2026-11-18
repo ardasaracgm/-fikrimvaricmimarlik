@@ -44,9 +44,11 @@ export default function Header({ locale }: Props) {
 
         <div className="header-right">
           <LocaleSwitcher locale={locale} />
-          <Link href="/admin/login" title="Admin Paneli" style={{ opacity: 0.5, fontSize: "0.85rem" }}>
+          {/* Düz <a>: gerçek domainde /admin sunucu yönlendirmesiyle vercel.app'e gider,
+              Next <Link> istemci geçişi bu yönlendirmeyi atlayabilir. */}
+          <a href="/admin/login" title="Admin Paneli" style={{ opacity: 0.5, fontSize: "0.85rem" }}>
             🔒
-          </Link>
+          </a>
           <button
             type="button"
             className={`menu-toggle ${open ? "open" : ""}`}
@@ -72,9 +74,9 @@ export default function Header({ locale }: Props) {
               {item.label}
             </Link>
           ))}
-          <Link href="/admin/login" onClick={() => setOpen(false)} style={{ opacity: 0.6 }}>
+          <a href="/admin/login" onClick={() => setOpen(false)} style={{ opacity: 0.6 }}>
             🔒 Admin
-          </Link>
+          </a>
         </div>
       </div>
     </header>
